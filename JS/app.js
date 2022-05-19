@@ -1,205 +1,237 @@
-/*Cajero Automático
-
+/*
+Cajero Automático
 Crea una aplicación web con JavaScript donde simulemos la interacción con un cajero automático.
 Al ingresar al cajero, puedes seleccionar la cuenta con la que deseas interactuar. Deben existir al menos tres cuentas:
-Persona 1
-Persona 2
-Persona 3
+    Persona 1
+    Persona 2
+    Persona 3
 Para esto, puedes trabajar con un arreglo de objetos como el siguiente:
-1
-2
-3
-4
-5
+
 var cuentas = [
-  { nombre: “Mali”, saldo: 200 }
-  { nombre: “Gera”, saldo: 290 }
-  { nombre: “Maui”, saldo: 67 }
+{ nombre: “Mali”, saldo: 200 }
+
+{ nombre: “Gera”, saldo: 290 }
+
+{ nombre: “Maui”, saldo: 67 }
 ];
+
 Al seleccionar una cuenta, debes ingresar el password asociado a la cuenta. Si el password es incorrecto, debes notificar al usuario y permitirle intentarlo nuevamente. Si el password es correcto, debes mostrar las siguientes opciones:
-Consultar saldo
-Ingresar monto
-Retirar Monto
+
+    Consultar saldo
+    Ingresar monto
+    Retirar Monto
+
 Al seleccionar consultar saldo, debe mostrar en pantalla el saldo actual de la cuenta
-Al seleccionar ingresar monto, el usuario debe escribir el monto a ingresar. Al ingresar el monto, debe mostrarle al usuario el monto ingresado y el nuevo saldo total.
-Al seleccionar retirar monto, el usuario debe escribir el monto a retirar. Al retirar el monto, debe mostrarle al usuario el monto retirado y el nuevo saldo total.
-Como regla de negocio, una cuenta no debe de tener más de $990 y menos de $10. Es necesario hacer las validaciones pertinentes para que no se rompa esta regla de negocio.*/
+Al seleccionar ingresar monto, el usuario debe escribir el monto a ingresar. 
+Al ingresar el monto, debe mostrarle al usuario el monto ingresado y el nuevo saldo total.
+Al seleccionar retirar monto, el usuario debe escribir el monto a retirar. 
+Al retirar el monto, debe mostrarle al usuario el monto retirado y el nuevo saldo total.
+Como regla de negocio, una cuenta no debe de tener más de $990 y menos de $10. 
+Es necesario hacer las validaciones pertinentes para que no se rompa esta regla de negocio.
+*/
 
+/*
+---------------
+Lista de funciones en los botones:
 
-/*var cuentas = [
-    { nombre: "Mali", saldo: 200, password: "unaContrasena" , hello: function(toWho) {console.log("hola" +  toWho);}},
-    { nombre: "Gera", saldo: 290 },
-    { nombre: "Maui", saldo: 67 },
+Volver --> operaciones()
+Iniciar sesión --> login()
+Consultar saldo --> consultarDisponible()
+Ingresar monto --> ingresar()
+Retirar monto --> retirar()
+Salir --> salir()
+Crea cuenta --> crearCuenta()
+---------------
+Lista de pantallas:
+
+htmlInicio
+htmlOperaciones
+htmlRespuesta
+---------------
+*/
+
+var cuentas = [
+    { nombre: "Mali", saldo: 200, password: '1234' },
+    { nombre: "Gera", saldo: 290, password: '1234' },
+    { nombre: "Maui", saldo: 67, password: '1234' }
 ];
 
-console.log(cuentas[0].hello("Jorgitou"));
-// Ingresar el usuario
+var indice = -1;
 
-// prompt*/
-jQuery(document).ready(function($) {
-	divCuentas();
+// START Variables con las "pantallas" en HTML
 
-    toastMsg('Bienvenido a su Banca Digital', 'Aquí podrá hacer todas sus operaciones bancarias');
-});
-//Array de cuentas
-var Accounts = [
-    {
-    	cuenta: '100100320503052',
-    	name:"Carlos Ritter", 
-    	saldo:500.20, 
-    	password:"carlos", 
-    	user:"carlos"
-    }, {
-    	cuenta: '100100320503053',
-    	name: "Cecilia",
-    	saldo: 570.00, 
-    	password: "cecilia",
-    	user:"cecilia"
-    }, {
-    	cuenta: '100100320503054',
-    	name:"Ever", 
-    	saldo: 499.30, 
-    	password: "ever", 
-    	user:"ever"
-    }, {
-    	cuenta: '100100320503055',
-    	name: "Stephano", 
-    	saldo: 302.20,
-    	password: "stephano", 
-    	user:"stephano"
-    }
-];
-//valores a tener en cuenta
-let max = 990;
-let min = 10;
+// Ingresar/Crear cuenta
+var htmlInicio = '<button onclick="login()">Iniciar sesión</button> <button onclick="crearCuenta()">Crear cuenta</button>';
+// Consultar/Ingresar/Retirar/Salir
+var htmlOperaciones = '<p>Elija la operación a realizar:</p><button onclick="consultarDisponible()">Consultar saldo</button> <button onclick="ingresar()">Ingresar monto</button> <button onclick="retirar()">Retirar monto</button> <button onclick="salir()">Salir</button>';
+// Resultado / Volver
+var htmlRespuesta = '<p id="texto"></p><button onclick="operaciones()">Volver</button>';
+// 
+// END Variables con las "pantallas" en HTML 
+//-------------------------------------------
+// START Funciones de los botones
+function operaciones() {
+    document.getElementById("ATM").innerHTML = htmlOperaciones;
+};
+function login() { 
+    var nombreCuenta;
+    for (var i = 0; i < cuentas.length; i++) {
+        // Cuando el loop acaba de iniciar o reinicia, pedir el nombre de usuario
+        if (i===0) {
+            nombreCuenta=prompt("Ingrese su nombre de usuario:");
+        };
+        //---------------------------------------------------------------
+        if (nombreCuenta === null) {
+            // Si el usuario da clic en cancelar, romper el loop
+            break;
+        } else if (nombreCuenta === cuentas[i].nombre) {
+            // Si existe el usuario, guardar el indiceCuenta, verificar contraseña y romper el loop de fuera
+            
+            var indiceCuenta = i;
+            // START Verificar contraseña
+            var pwCuenta;
+            while (pwCuenta !== cuentas[indiceCuenta].password) {
+                pwCuenta = prompt('Accediendo a la cuenta de "' + cuentas[indiceCuenta].nombre + '". Ingrese su contraseña:');
+                if (pwCuenta === null) {
+                    indiceCuenta === -1;
+                    break;
+                } else if (pwCuenta === cuentas[indiceCuenta].password) {
+                    operaciones();
+                    // Sacar el valor de indice
+                    indice = indiceCuenta;
+                } else {
+                    alert("La contraseña no es correcta. Intente nuevamente.");
+                };
+            };
+            // END Verificar contraseña
+            break;
+        } else if (i === cuentas.length-1) {
+            // Al haber revisado todo el array y no encontrar el usuario, reiniciar el loop y mostrar mensaje
+            // El loop reinicia con i=-1 porque al volver "arriba", se le suma 1, quedando en 0 de nuevo
+            alert("No se ha encontrado un usuario con este nombre. Intente nuevamente.");
+            i=-1;
+        };
+    };
+};
 
-const toastMsg = (titulo, msg) =>{
-    const mensaje = document.querySelector("#mensaje");
-    let toastHtml ='<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 99999">\
-        <div id="basicToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">\
-            <div class="toast-header bg-primary text-light">\
-            <h5 class="my-0">'+titulo+'</h5>\
-            </div>\
-            <div class="toast-body">'+msg+'</div>\
-        </div>  \
-    </div>';
+function crearCuenta() { 
+    var existe = true;
+    while (existe !== false) {
+        var ccNombre = prompt("Ingrese el nombre de usuario que desea utilizar:");
+        if (ccNombre !== null) {
+            // Verificar si existe la cuenta
+            for (var i = 0; i < cuentas.length; i++) {
+                if (ccNombre === cuentas[i].nombre) {
+                    existe = true;
+                    alert("Este nombre de usuario ya existe.");
+                    break;
+                } else {
+                    existe = false;
+                };
+            };
+            // Seguir solo si no existe
+            if (existe === false) {
+                var ccPassword = prompt("Ingrese una contraseña:");
+                if (ccPassword !== null) {
+                    var ccSaldo=NaN;
+                    while (isNaN(ccSaldo)===true) {
+                        ccSaldo = prompt("Ingrese su saldo inicial:");
+                        if (ccSaldo !== null) {
+                            ccSaldo = Number(ccSaldo);
+                            if (isNaN(ccSaldo)===true) {
+                                alert("El valor ingresado no es numérico. Intente nuevamente.");
+                            } else if (ccSaldo === null) {
+                                break;
+                            } else if (ccSaldo < 10) {
+                                alert("El valor ingresado es menor que el monto mínimo. El monto mínimo que una cuenta debe tener en todo momento es de $10."); 
+                                ccSaldo = NaN;                               
+                            } else if (ccSaldo > 990) {
+                                alert("El valor ingresado es mayor que el monto máximo. El monto máximo que una cuenta puede tener es de $990");
+                                ccSaldo = NaN;                              
+                            } else {
+                                cuentas.push({ nombre: ccNombre, saldo: ccSaldo, password: ccPassword });
+                                alert('Se ha guardado tu cuenta. Tu nombre de usuario es "'+ccNombre+'". Tu contraseña es "'+ccPassword+'". Tu saldo inicial es de $'+ccSaldo+'.')
+                            };
+                        } else {
+                            break;
+                        };
+                    };
+                };
+            };
+        } else {
+            break;
+        };
+    };
+};
+function consultarDisponible() {
+    var textToShow = ("El saldo disponible en la cuenta de "+"<b>"+cuentas[indice].nombre+"</b>"+" es de: <b>$"+cuentas[indice].saldo+"</b>");
+    document.getElementById("cajero").innerHTML = htmlRespuesta
+    document.getElementById("texto").innerHTML = textToShow;
+};
+function ingresar() {
+    var saldoActual = cuentas[indice].saldo;
+    while (saldoActual === cuentas[indice].saldo) {
+        var strMonto = prompt("Monto a ingresar:");
+        var monto = Number(strMonto);
+        if (strMonto === null) {
+            break;
+        } else if ((isNaN(monto)===true)||(monto <= 0)) {
+            alert("Por favor, ingrese un monto válido.");
+        } else {
+            var nuevoSaldo = monto + saldoActual
+            if (nuevoSaldo>990) {
+                alert("Su saldo actual es de $"+saldoActual+", al ingresar $"+monto+ " se superaría el máximo de $990. La operación no es permitida.");
+            } else {
+                var textToShow = ("El monto ingresado es de <b>$"+monto+"</b>. Su nuevo saldo es de <b>$"+nuevoSaldo+"</b>.");
+                cuentas[indice].saldo =  nuevoSaldo;
+                document.getElementById("cajero").innerHTML = htmlRespuesta;
+                document.getElementById("texto").innerHTML = textToShow
+            };
+        };
+    };
+};
+function retirar() {
+    var saldoActual = cuentas[indice].saldo;
+    while (saldoActual === cuentas[indice].saldo) {
+        var strMonto = prompt("Monto a ingresar:");
+        var monto = Number(strMonto);
+        if (strMonto === null) {
+            break;
+        } else if ((isNaN(monto)===true)||(monto <= 0)) {
+            alert("Por favor, ingrese un monto válido.");
+        } else {
+            var nuevoSaldo = saldoActual - monto;
+            if (nuevoSaldo<10) {
+                alert("Su saldo actual es de $"+saldoActual+". Al retirar $"+monto+ " la cuenta tendría menos de  $10. La operación no es permitida.");
+            } else {
+                var textToShow = ("El monto ingresado es de <b>$"+monto+"</b>. Su nuevo saldo es de <b>$"+nuevoSaldo+"</b>.");
+                cuentas[indice].saldo =  nuevoSaldo;
+                document.getElementById("cajero").innerHTML = htmlRespuesta;
+                document.getElementById("texto").innerHTML = textToShow;
+            };
+        };
+    };
+};
+function salir() {
+    indice = -1;
+    document.getElementById("cajero").innerHTML = htmlInicio;
+};
+// END Funciones de los botones
+/*
+//-------------------------------------------
+Nota: Explicacion de crearCuenta()
+//-------------------------------------------
+Al hacer click en el boton:
+1. Prompt pide el nombre de usuario
+    1.1 si es texto (=no se cancelo), pasar a 1.2
+    1.2 - si ya existe, mostrar alerta y volver a 1
+        - si no existe, seguir a 2
+2. Prompt pide la contraseña
+    - si es texto, pasar a 3
+3. Prompt pide el saldo inicial
+    - si es un numero, pasar a 4
+    - si es NaN, volver a 3
+4. Alerta muestra que la cuenta fue creada. Muestra el nombre, la password y el saldo. El nuevo objeto se almacena en el array
+*/
 
-    mensaje.innerHTML = toastHtml;
 
-    new bootstrap.Toast(document.querySelector('#basicToast')).show();
-}
-
-//creamos los div de cada cuenta del array
-const divCuentas = () =>{
-	const homeCuentas = document.querySelector("#homeCuentas");
-	let html = '';
-	for (var i = 0; i < Accounts.length; i++) {
-		persona = Accounts[i];
-
-		html +='<div class="col">\
-	        <div class="card mb-4 rounded-3 shadow-sm">\
-	          <div class="card-header py-3">\
-	            <h4 class="my-0 fw-normal">'+ persona.name +'</h4>\
-	          </div>\
-	          <div class="card-body">\
-	            <ul class="list-unstyled mt-3 mb-4">\
-	              <li>Nro Cuenta <br> ' + persona.cuenta + '</li>\
-	            </ul>\
-	            <button type="button" class="w-100 btn btn-lg btn-outline-primary" onclick="elegirCuenta('+ persona.cuenta +')">Log In</button>\
-	          </div>\
-	        </div>\
-	      </div>';
-
-	}
-
-	homeCuentas.innerHTML = html;
-	
-}
-//fin de los div
-//funcion para elegir la cuenta
-const elegirCuenta = (cuenta) => {
-	document.getElementById("cuenta").value = cuenta;
-	login(cuenta);
-}
-//funcion para desplegar el modal del login
-const login = (cuenta) => {
-	$('#staticBackdrop').modal('show');
-}
-//funcion para validar los datos ingresados en el login
-const validarDatos = () => {
-	user = document.getElementById("user").value;
-	pass = document.getElementById("pass").value;
-	cta = document.getElementById("cuenta").value;
-	
-	let cont = 0;
-	for (var i = 0; i < Accounts.length; i++) {
-		persona = Accounts[i];
-
-		if(user == persona.user && pass == persona.password && cta == persona.cuenta){
-			cont++;
-			document.getElementById("saldoOculto").value = persona.saldo;
-			document.getElementById("persona").innerHTML = 'Hola '+persona.name
-		}
-	}
-
-	if(cont > 0){
-		//ocultamos el contenido de elegir cuenta
-		$('#home').css('display', 'none');
-
-		//visualizamos el contenido movimientos
-		$('#movimientos').removeAttr('style');
-
-		//Ocultamos el login
-		$('#staticBackdrop').modal('hide');
-	}else{
-		toastMsg('Datos incorrectos','Hola, el usuario o la contraseña son incorrectos');
-	}
-}
-//funcion para las validaciones dentro del detalle de las cuentas
-const movimientos = (accion) => {
-
-	saldo = document.getElementById("saldoOculto").value;
-	saldo = parseFloat(saldo);
-
-	if(accion == 'consultar'){
-		document.getElementById("saldo").value = saldo;
-		alert('Su saldo es: '+saldo)
-	}else if(accion == 'depositar'){
-    
-		//Obtenemos el monto a depositar
-		montoDepositar = document.getElementById("deposito").value;
-		montoDepositar = parseFloat(montoDepositar);
-
-		saldoTotal = saldo + montoDepositar;
-
-		puedeDepositar = max - saldo;
-
-		if(saldoTotal > max){
-			alert('Excede el monto a depositar, solo puede depositar $ '+puedeDepositar);
-			
-		} else if (montoDepositar < 0 || montoDepositar == '') {
-			alert('Debe ingresar un monto valido')
-		}else{
-			document.getElementById("saldoOculto").value = saldoTotal;
-			document.getElementById("deposito").value = 0;
-			alert('Monto depositado: $' + montoDepositar + '. Saldo disponible: $ '+ saldoTotal);
-		}
-
-	}else{
-		montoRetirar = document.getElementById("retiro").value;
-		montoRetirar = parseFloat(montoRetirar);
-
-		saldoTotal = saldo - montoRetirar;
-
-		puedeRetirar = saldo - min;
-		if(saldoTotal < min){
-			alert('Excede el monto a retirar, solo puede retirar $ '+puedeRetirar);
-		}else if (montoRetirar < 0 || montoRetirar == '') {
-			alert('Debe ingresar un monto valido')
-		}else{
-			document.getElementById("saldoOculto").value = saldoTotal;
-			document.getElementById("retiro").value = 0;
-			alert('Monto retirado: $' + montoRetirar + '. Saldo disponible: $ '+ saldoTotal);
-		}
-	}
-}

@@ -9,6 +9,7 @@ body{
     width: 100%;
     
 }
+
 .header {
     width: 100%;
     height: 100px;
@@ -20,10 +21,9 @@ body{
     justify-content: flex-start;
 }
 
-
 .nav{
     background-color: #252711;
-    margin: 2px;
+    margin: .5px;
     width: 100%;
     height: 40px;
     text-align: center;
