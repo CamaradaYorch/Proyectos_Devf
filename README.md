@@ -1,6 +1,7 @@
 # Proyectos_Devf 🚧
-
+----------------------------------------------------------------------------
 🏧Cajero Automatico🏧
+----------------------------------------------------------------------------
 
 🌎English Doc:
 
@@ -11,24 +12,24 @@ I'm a visual artist which its taking new routes in learning technology.
 Hope you enjoy this archive and if you're not a coder, this repository 
 will help you in your learning career.
 
-
+----------------------------------------------------------------------------
 
 🇲🇽 Español Doc:
 
-Hola, este es mi repositorio de la maestría en programación en la escuela DEVF
-( https://devf.la/ ) en la Ciudad de México.
+Hola, este es mi repositorio de la maestría en programación en la escuela 
+DEVF( https://devf.la/ ) en la Ciudad de México.
 
-Soy un artista visual que está tomando nuevas rutas en el aprendizaje de la tecnología.
-Espero que disfrutes de este archivo y si no eres programador, este repositorio
-le ayudará en su carrera de aprendizaje.
+Soy un artista visual que está tomando nuevas rutas en el aprendizaje de 
+la tecnología.Espero que disfrutes de este archivo y si no eres programador, 
+este repositorio le ayudará en su carrera de aprendizaje.
 
-
+----------------------------------------------------------------------------
 
 🥋KATA JS🥋
 
-Crea una aplicación web con JavaScript dónde simulemos la interacción con un cajero automático.
-Al ingresar al cajero, puedes seleccionar la cuenta con la que deseas interactuar.
-  Deben existir al menos tres cuentas:
+Crea una aplicación web con JavaScript dónde simulemos la interacción
+con un cajeroautomático.Al ingresar al cajero, puedes seleccionar la cuenta
+con la que deseas interactuar.Deben existir al menos tres cuentas:
   
     ‘Mali’
     ‘Gera’
@@ -63,3 +64,4 @@ debe mostrarle al usuario el monto retirado y el nuevo saldo total.
 Como regla de negocio, una cuenta no debe de tener más de $990 y menos de $10.
 Es necesario hacer las validaciones pertinentes en tu código para que no se rompa esta regla de negocio.
 
+----------------------------------------------------------------------------
