@@ -7,10 +7,13 @@ body{
     background-color: #141616;
     height: auto;
     width: 100%;
-    
 }
 
 .header {
+    background-image: url(/Css/img/SVG/devf.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
     width: 100%;
     height: 100px;
     background-color: #141616;
@@ -30,7 +33,7 @@ body{
 }
 
 .main{
-    background-color: #3d4242;
+    background-color: #0c1935;
     width: 100%;
     height: calc(100vh - 200px);
     display: flex;
@@ -39,6 +42,10 @@ body{
 }
 
 .section{
+    background-image: url(/Css/img/SVG/logo.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
     background-color: #7f9999;
     width: 70%;
     height: 100%;
@@ -47,13 +54,6 @@ body{
     overflow-y: scroll;
 }
 
-.form-floating-{
-    text-emphasis-color: rgb(24, 167, 185);
-    font-family: 'Courier New';
-    font-size: 1em;
-    padding: auto;
-    align-items: center;
-}
 
 .form1{
     background-color: #0fe7e7;

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="En">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Css/stylesheet.css">
+    <style lang="en" type="text/css" id="dark-mode-native-style"></style>
+    <!--<script src="JS/app.js"></script>-->
+    <title> ᴄᴀᴊᴇʀᴏ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴏ 🏧 </title>
+</head>
+
+<body>
+
+    <header class="header">
+        <img src="/Css/img/SVG/logo.png" alt="logo">
+    </header>
+<!--Termina Header-->
+
+    <nav class="nav">
+        <div style="padding: 2px;">
+            <h1>¡Bienvenido a tu cuenta!</h1>
+        </div>
+    </nav>
+<!--Termina Nav-->
+
+    <main class="main">
+        <section class="section">
+            <button id="toggleButton">Toggle</button>
+            <div style="padding: 5em;" id="formularioUno">
+                <form action="">
+                        <h1 id="">¡Hola _____!</h1><br>
+                        <h4 id=""> Tiene usted un saldo de :</h4><br>
+                            <label for="">Cuenta 1 $:</label>
+                                <input type="text" name="Cantidad1" id="C1" value="200"><br>
+<!--Termina información sobre cuentas-->
+                            <br><h1>Ingresa la cantidad para realizar alguna operación:</h1><br>
+                                <input type="text" name="" id="cantidadATransferir" placeholder="$"><br><br><br><hr>
+                        <h1>Operaciones disponibles:</h1><br>
+
+                        <h2>&lt;-Ingresar monto-&gt;</h2><br>
+                        <input type="button" value="Depositar a cuenta 1" id="bt8" onclick="Deposit1()">
+                        <input type="button" value="Depositar a cuenta 2" id="bt9" onclick="Deposit2()">
+                        <input type="button" value="Depositar a cuenta 3" id="bt10" onclick="Deposit3()"><br><br><br>
+                        <h2>&lt;-Retirar monto-&gt;</h2>
+                        <input type="button" value="Retirar de cuenta 1" id="bt11" onclick="Withdraw1()">
+                        <input type="button" value="Retirar de cuenta 2" id="bt12" onclick="Withdraw2()">
+                        <input type="button" value="Retirar de cuenta 3" id="bt13" onclick="Withdraw3()"><br><br><br>
+                </form>
+            </div>
+        </section>
+
+
+<!--Termina seccion de formulario-->
+        <aside class="aside">
+            <div style="padding: 2em;">
+                <a href="https://devf.la/" 
+                    target="_blank"><input type="image" src="Css/img/SVG/Devf.svg"width="100%"></a>
+                <hr noshade size="1" width="100%"></hr><br>
+                <br><h1>KATA JS</h1><hr></br>
+                <p><Strong>Crea una aplicación web con JavaScript dónde simulemos la interacción con un cajero automático.</Strong><br><br><hr><br>
+                        Al ingresar al cajero, puedes seleccionar la cuenta con la que deseas interactuar. <br><br>
+                        Deben existir al menos tres cuentas:<br><br><strong>‘Mali’</strong><br><br> <strong> ‘Gera’ </strong><br><br> <strong> ‘Maui<br><br></strong>
+                        Para esto, puedes trabajar con un arreglo de objetos como el siguiente:<br><br><br>
+                    <Strong>var cuentas = [ <br><br>
+                            { <br>nombre: "Mali", saldo: 200,password: '123' <br>},<br><br> 
+                            { <br>nombre: "Gera", saldo: 290, password: '123' <br>}, <br><br>
+                            { <br>nombre: "Maui", saldo: 67, password: '123' <br> }, <br>];<br><br><br>
+                    </Strong>
+                        Al seleccionar una cuenta, debes ingresar el password asociado a la cuenta. Si el password es incorrecto, debes notificar al usuario y permitirle intentarlo nuevamente. <br><br>
+                        Si el password es correcto, debes mostrar las siguientes opciones:<br><br>
+                    <Strong>Consultar saldo<br>
+                                Ingresar monto<br>
+                                Retirar monto<br><br>
+                    </Strong>
+                            <li>Al seleccionar consultar saldo, debe mostrar en pantalla el saldo actual de la cuenta.<br><br></li>
+                            <li>Al seleccionar ingresar monto, el usuario debe escribir el monto a ingresar.<br><br></li>
+                            <li>Al ingresar el monto, debe mostrarle al usuario el monto ingresado y el nuevo saldo total.<br><br></li>
+                            <li>Al seleccionar retirar monto, el usuario debe escribir el monto a retirar. Al retirar el monto, 
+                                debe mostrarle al usuario el monto retirado y el nuevo saldo total.<br><br></li>
+                    <Strong>Como regla de negocio, una cuenta no debe de tener más de $990 y menos de $10.
+                    </Strong><br><br>
+                        Es necesario hacer las validaciones pertinentes en tu código para que no se rompa esta regla de negocio.<br><br><br> <hr>
+                </div>
+<!--Termina aside con instrucciones de actividad-->
+
+            <div style="text-align: center;">  
+                <ul class="socialmedia">
+                    <a href="https://github.com/CamaradaYorch"
+                                target="_blank"><input type="image" src="./Css/img/SVG/Github.svg"width="10%"></a></li>
+                    <a href="https://twitter.com/JorgeMe28988576"
+                                target="_blank"><input type="image" src="./Css/img/SVG/Twitter.svg"width="10%"></a></li>
+                    <a href="https://www.instagram.com/jorge.mortem/"
+                                target="_blank"><input type="image" src="./Css/img/SVG/Instagram.svg"width="10%"></a></li>
+                    <a href="https://www.facebook.com/jorge.mortem/"
+                                target="_blank"><input type="image" src="./Css/img/SVG/Facebook.svg"width="10%"></a></li>
+                    <a href="https://www.linkedin.com/in/jorge-mera-867266198"
+                                target="_blank"><input type="image" src="./Css/img/SVG/Linkedin.svg"width="10%"></a></li>
+                    <a href="https://www.youtube.com/channel/UCXSuQRp-W-7A4e-jw6rsktA"
+                                target="_blank"><input type="image" src="./Css/img/SVG/Youtube.svg"width="10%"></a>
+                </ul>
+            </div>
+<!--Termina aside con redes sociales-->
+
+        </aside>
+    </main>
+
+    <!-- <div id="oculto" style="background-color: #0000FF;">
+        <p>Hola mundo</p>
+    </div>-->
+
+<!--Termina main, seccion y aside-->
+
+    <footer class="footer">
+        <hr><br>
+        <ul>
+            <h6>Terminos y Condiciones | Proyecto realizado por Jorge Mera  |<b><input type="button" onclick="alert('Kata Java Script, Cajero Automático 🏧')" value="𝔻𝕖𝕧.𝕗"id="boton"/></h6></b><br>
+        </ul>
+    </footer>
+<!--Termina footer-->
+
+    <script>
+        var t = false;
+        const boton = document.getElementById("toggleButton");
+            boton.addEventListener("click", function() {
+            const a = document.getElementById("formularioUno");
+            const b = document.getElementById("formularioDos");
+            const c = document.getElementById("formularioTres");
+
+            a.hidden = !t;
+            b.hidden = !!t;
+            c.hidden = !!!t;
+
+            t = !t;
+        });
+    </script>
+
+
+</body>
+</html>

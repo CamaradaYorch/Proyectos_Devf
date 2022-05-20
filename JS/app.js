@@ -58,21 +58,22 @@ var cuentas = [
 
 var indice = -1;
 
-// START Variables con las "pantallas" en HTML
-
 // Ingresar/Crear cuenta
 var htmlInicio = '<button onclick="login()">Iniciar sesión</button> <button onclick="crearCuenta()">Crear cuenta</button>';
 // Consultar/Ingresar/Retirar/Salir
 var htmlOperaciones = '<p>Elija la operación a realizar:</p><button onclick="consultarDisponible()">Consultar saldo</button> <button onclick="ingresar()">Ingresar monto</button> <button onclick="retirar()">Retirar monto</button> <button onclick="salir()">Salir</button>';
 // Resultado / Volver
 var htmlRespuesta = '<p id="texto"></p><button onclick="operaciones()">Volver</button>';
-// 
-// END Variables con las "pantallas" en HTML 
+//Variables con pantalla en HTML 
+
 //-------------------------------------------
-// START Funciones de los botones
+
+//Funciones de los botones
+
 function operaciones() {
     document.getElementById("ATM").innerHTML = htmlOperaciones;
 };
+
 function login() { 
     var nombreCuenta;
     for (var i = 0; i < cuentas.length; i++) {
@@ -80,7 +81,6 @@ function login() {
         if (i===0) {
             nombreCuenta=prompt("Ingrese su nombre de usuario:");
         };
-        //---------------------------------------------------------------
         if (nombreCuenta === null) {
             // Si el usuario da clic en cancelar, romper el loop
             break;
@@ -163,6 +163,7 @@ function crearCuenta() {
         };
     };
 };
+
 function consultarDisponible() {
     var textToShow = ("El saldo disponible en la cuenta de "+"<b>"+cuentas[indice].nombre+"</b>"+" es de: <b>$"+cuentas[indice].saldo+"</b>");
     document.getElementById("cajero").innerHTML = htmlRespuesta
@@ -216,22 +217,3 @@ function salir() {
     indice = -1;
     document.getElementById("cajero").innerHTML = htmlInicio;
 };
-// END Funciones de los botones
-/*
-//-------------------------------------------
-Nota: Explicacion de crearCuenta()
-//-------------------------------------------
-Al hacer click en el boton:
-1. Prompt pide el nombre de usuario
-    1.1 si es texto (=no se cancelo), pasar a 1.2
-    1.2 - si ya existe, mostrar alerta y volver a 1
-        - si no existe, seguir a 2
-2. Prompt pide la contraseña
-    - si es texto, pasar a 3
-3. Prompt pide el saldo inicial
-    - si es un numero, pasar a 4
-    - si es NaN, volver a 3
-4. Alerta muestra que la cuenta fue creada. Muestra el nombre, la password y el saldo. El nuevo objeto se almacena en el array
-*/
-
-

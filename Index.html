@@ -14,12 +14,13 @@
 <body>
 
     <header class="header">
-        <img src="/Css/img/SVG/logo.png" alt="logo">
+        <img src="/Css/img/SVG/devf.png" alt="ATM">
     </header>
 <!--☝Termina Header☝-->
 
         <nav class="nav">
-            <div style="padding: 2px;">
+            <div style="padding: px;">
+                <hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr>
                 <hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr>
             </div>
         </nav>
@@ -29,10 +30,12 @@
         <section class="section">
             <div style="padding: 5em;" id="formulario">
                 <div style="background-color:black; padding: 10px; text-align: center; color: rgb(255, 255, 255); font-size: large;">
-                    <p style="opacity: 100%;"><strong> ¡Bienvenido a tu cuenta!</strong></p>
+                    <p style="opacity: 100%;"><br><strong> ¡Bienvenido a tu cuenta!</strong></p><br>
                 </div>
-                <div id="ATM" style="margin-top: 0px; background-color: rgb(178, 190, 190); padding: 50px 10px; text-align: center;">
-                    <button onclick="login()">Iniciar sesión</button> <button onclick="crearCuenta()">Crear cuenta</button>
+                <div id="ATM" style="margin-top: 0px; background-color: rgba(0, 0, 0, 0.76); padding: 50px 10px; text-align: center;">
+                    <img src="/Css/img/SVG/user.png" alt="User" width="20%"><br><br><br>
+                    <div><button onclick="login()"><br> &nbsp; Iniciar sesión&nbsp;&nbsp;&nbsp; <br> &nbsp;</button>
+                        <button onclick="crearCuenta()"> <br> &nbsp; Crear Cuenta &nbsp;&nbsp;&nbsp; <br> &nbsp;</button></div><br><br>
                 </div>
             </div>
         </section>
@@ -41,35 +44,35 @@
         <aside class="aside">
             <div style="padding: 2em;">
                 <a href="https://devf.la/" 
-                    target="_blank"><input type="image" src="Css/img/SVG/Devf.svg"width="100%"></a><br><br>
-                <br><h1>KATA JS</h1><hr></br>
+                    target="_blank"><input type="image" src="Css/img/SVG/Devf.svg"width="100%" alt="Hola"></a><br><br>
+                <br><h1>&nbsp;&nbsp;KATA JS</h1><hr></br>
                 <p><Strong>Crea una aplicación web con JavaScript dónde simulemos la interacción con un cajero automático.</Strong><br><br><hr><br>
-                        Al ingresar al cajero, puedes seleccionar la cuenta con la que deseas interactuar. <br><br>
+                        &nbsp;&nbsp;Al ingresar al cajero, puedes seleccionar la cuenta con la que deseas interactuar. <br><br>
                         Deben existir al menos tres cuentas:
-                        <br><br><strong>‘Mali’</strong>
-                        <br><br><strong> ‘Gera’ </strong>
-                        <br><br><strong> ‘Maui<br><br></strong>
+                        <br><br><strong> &nbsp;&nbsp;‘Mali’</strong>
+                        <br><br><strong> &nbsp;&nbsp;‘Gera’ </strong>
+                        <br><br><strong> &nbsp;&nbsp;‘Maui’<br><br></strong>
                         Para esto, puedes trabajar con un arreglo de objetos como el siguiente:<br><br><br>
                     <Strong>var cuentas = [ <br><br>
                             { <br>nombre: "Mali", saldo: 200,password: '1234' <br>},<br><br> 
                             { <br>nombre: "Gera", saldo: 290, password: '1234' <br>}, <br><br>
                             { <br>nombre: "Maui", saldo: 67, password: '1234' <br> }, <br>];<br><br><br>
                     </Strong>
-                        Al seleccionar una cuenta, debes ingresar el password asociado a la cuenta. 
-                        Si el password es incorrecto, debes notificar al usuario y permitirle intentarlo nuevamente. <br><br>
+                        &nbsp;&nbsp;Al seleccionar una cuenta, debes ingresar el password asociado a la cuenta. 
+                        Si el password es incorrecto, debes notificar al usuario y permitirle intentarlo nuevamente.
                         Si el password es correcto, debes mostrar las siguientes opciones:<br><br>
-                    <Strong>Consultar saldo<br>
-                            Ingresar monto<br>
-                            Retirar monto<br><br>
+                    <Strong>&nbsp;&nbsp;Consultar saldo<br>
+                            &nbsp;&nbsp;Ingresar monto<br>
+                            &nbsp;&nbsp;Retirar monto<br><br>
                     </Strong>
-                            <li>Al seleccionar consultar saldo, debe mostrar en pantalla el saldo actual de la cuenta.<br><br></li>
-                            <li>Al seleccionar ingresar monto, el usuario debe escribir el monto a ingresar.<br><br></li>
-                            <li>Al ingresar el monto, debe mostrarle al usuario el monto ingresado y el nuevo saldo total.<br><br></li>
-                            <li>Al seleccionar retirar monto, el usuario debe escribir el monto a retirar. Al retirar el monto, 
+                            <li>&nbsp;&nbsp;Al seleccionar consultar saldo, debe mostrar en pantalla el saldo actual de la cuenta.<br><br></li>
+                            <li>&nbsp;&nbsp;Al seleccionar ingresar monto, el usuario debe escribir el monto a ingresar.<br><br></li>
+                            <li>&nbsp;&nbsp;Al ingresar el monto, debe mostrarle al usuario el monto ingresado y el nuevo saldo total.<br><br></li>
+                            <li>&nbsp;&nbsp;Al seleccionar retirar monto, el usuario debe escribir el monto a retirar. Al retirar el monto, 
                                 debe mostrarle al usuario el monto retirado y el nuevo saldo total.<br><br></li>
                     <Strong>Como regla de negocio, una cuenta no debe de tener más de $990 y menos de $10.
                     </Strong><br><br>
-                        Es necesario hacer las validaciones pertinentes en tu código para que no se rompa esta regla de negocio.<br><br><br> <hr>
+                        &nbsp;&nbsp;Es necesario hacer las validaciones pertinentes en tu código para que no se rompa esta regla de negocio.<br><br><br> <hr>
             </div>
 <!--☝Termina texto con indicaciones de actividad en el aside☝-->
 
@@ -86,7 +89,7 @@
                     <a href="https://www.linkedin.com/in/jorge-mera-867266198"
                         target="_blank"><input type="image" src="./Css/img/SVG/Linkedin.svg"width="10%"></a>
                     <a href="https://www.youtube.com/channel/UCXSuQRp-W-7A4e-jw6rsktA"
-                        target="_blank"><input type="image" src="./Css/img/SVG/Youtube.svg"width="10%"></a>
+                        target="_blank"><input type="image" src="./Css/img/SVG/Youtube.svg"width="10%"></a>&nbsp;&nbsp;
                 </ul>
 <!--☝Termina aside con iconos de redes sociales☝-->
             </div>
